@@ -20,8 +20,8 @@ public class HttpClientGetRequest {
             HttpGet request = new HttpGet("https://api.bitbay.net/rest/trading/stats/BTC-PLN");
 
             // add request headers
-//            request.addHeader("custom-key", "mkyong");
-//            request.addHeader(HttpHeaders.USER_AGENT, "Googlebot");
+//            request.addHeader("custom-key", "example1");
+//            request.addHeader(HttpHeaders.USER_AGENT, "example2");
 
             CloseableHttpResponse response = httpClient.execute(request);
 

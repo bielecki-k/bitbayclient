@@ -12,14 +12,6 @@ import java.sql.Types;
 
 public class SQLiteDialect extends Dialect {
 
-    public SQLiteDialect() {
-        registerColumnType(Types.BIT, "integer");
-        registerColumnType(Types.TINYINT, "tinyint");
-        registerColumnType(Types.SMALLINT, "smallint");
-        registerColumnType(Types.INTEGER, "integer");
-        // other data types
-    }
-
     @Autowired
     Environment env;
 
@@ -31,6 +23,14 @@ public class SQLiteDialect extends Dialect {
         dataSource.setUsername(env.getProperty("user"));
         dataSource.setPassword(env.getProperty("password"));
         return dataSource;
+    }
+
+    public SQLiteDialect() {
+        registerColumnType(Types.BIT, "integer");
+        registerColumnType(Types.TINYINT, "tinyint");
+        registerColumnType(Types.SMALLINT, "smallint");
+        registerColumnType(Types.INTEGER, "integer");
+        // other data types
     }
 
     @Override
