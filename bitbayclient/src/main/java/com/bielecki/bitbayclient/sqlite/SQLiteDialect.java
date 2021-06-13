@@ -9,6 +9,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import javax.sql.DataSource;
 import java.sql.Types;
+import java.util.Objects;
 
 public class SQLiteDialect extends Dialect {
 
@@ -18,7 +19,7 @@ public class SQLiteDialect extends Dialect {
     @Bean
     public DataSource dataSource() {
         final DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(env.getProperty("driverClassName"));
+        dataSource.setDriverClassName(Objects.requireNonNull(env.getProperty("driverClassName")));
         dataSource.setUrl(env.getProperty("url"));
         dataSource.setUsername(env.getProperty("user"));
         dataSource.setPassword(env.getProperty("password"));
